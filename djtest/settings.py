@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import fktest
+import djtest
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -53,7 +53,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'fktest.urls'
+ROOT_URLCONF = 'djtest.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'fktest.wsgi.application'
+WSGI_APPLICATION = 'djtest.wsgi.application'
 
 
 # Database
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'fktest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fktest',
+        'NAME': 'djtest',
         'USER': 'lirui',
         'PASSWORD': '15210945863',
         'HOST': '192.168.172.131',
