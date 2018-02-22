@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_protect
 from django.template.context_processors import csrf
-import json
+import time
 
 
 # Create your views here.
@@ -55,4 +55,8 @@ def check_form(request):
 
 def ajax_post(request):
     if request.method == 'POST':
-        return JsonResponse({'key': '5', 'value': '10'})
+        key = request.POST.get('key')
+        value = request.POST.get('value')
+        response = JsonResponse({'key': key, 'value': value})
+        response.set_cookie('time', time.time())
+        return response

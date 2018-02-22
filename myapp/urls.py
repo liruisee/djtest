@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 from myapp import views
 from fktest import settings
+from myapp import users
 
 urlpatterns = [
     # Examples:
@@ -15,6 +16,6 @@ urlpatterns = [
     url(r'charts/$', views.charts),
     url(r'example/$', views.example),
     url(r'regist/$', views.register),
-    url(r'check_form/$', views.check_form),
+    url(r'check_form/$', users.auth_user),
     url(r'ajax_post', views.ajax_post)
 ]
