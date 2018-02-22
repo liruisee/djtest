@@ -26,7 +26,8 @@ SECRET_KEY = 'vew$b=--$1e@1#yr*$+iq@7bqwcnlr7n42r)qznfnj0c55*z%b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', '0.0.0.0',
+                 ]
 
 
 # Application definition
@@ -78,8 +79,12 @@ WSGI_APPLICATION = 'fktest.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'fktest',
+        'USER': 'lirui',
+        'PASSWORD': '15210945863',
+        'HOST': '192.168.172.131',
+        'PORT': 3306
     }
 }
 
@@ -103,4 +108,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ([os.path.join(BASE_DIR, 'static')])
-STATIC_PATH = os.path.join(BASE_DIR, 'static/').replace('\\', '/')
+# STATIC_PATH = os.path.join(BASE_DIR, 'static/').replace('\\', '/')
+
+

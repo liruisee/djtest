@@ -164,5 +164,10 @@ $(document).ready(function() {
 			"sLengthMenu": "_MENU_ records per page"
 		}
 	} );
+	var my_table = $('#example');
+	my_table.replaceWith('<div style="overflow:scroll"><table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">'+my_table.html()+'</table></div>');
+	var my_table2 = $('#table2');
+	my_table2.replaceWith('<div style="overflow:scroll"><table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">'+my_table2.html()+'</table></div>');
+
 
 } );
