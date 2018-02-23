@@ -1,11 +1,11 @@
 from django.conf.urls import include, url
 from myapp import views
-from djtest import settings
+from fktest import settings
 from myapp import users
 
 urlpatterns = [
     # Examples:
-    # url(r'^$', 'djtest.views.home', name='home'),
+    # url(r'^$', 'fktest.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'index/$', views.index),

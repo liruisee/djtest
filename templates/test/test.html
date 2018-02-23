@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{max-width:100%;border-collapse:collapse;border-spacing:0;background-color:transparent;}
+        .table{width:100%;margin-bottom:18px;}.table th,.table td{padding:8px;line-height:18px;text-align:left;vertical-align:top;border-top:1px solid #dddddd;}
+        .table th{font-weight:bold;}
+        .table thead th{vertical-align:bottom;}
+        .table colgroup+thead tr:first-child th,.table colgroup+thead tr:first-child td,.table thead:first-child tr:first-child th,.table thead:first-child tr:first-child td{border-top:0;}
+        .table tbody+tbody{border-top:2px solid #dddddd;}
+        .table-condensed th,.table-condensed td{padding:4px 5px;}
+        .table-bordered{border:1px solid #dddddd;border-left:0;border-collapse:separate;*border-collapse:collapsed;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}.table-bordered th,.table-bordered td{border-left:1px solid #dddddd;}
+        .table-bordered thead:first-child tr:first-child th,.table-bordered tbody:first-child tr:first-child th,.table-bordered tbody:first-child tr:first-child td{border-top:0;}
+        .table-bordered thead:first-child tr:first-child th:first-child,.table-bordered tbody:first-child tr:first-child td:first-child{-webkit-border-radius:4px 0 0 0;-moz-border-radius:4px 0 0 0;border-radius:4px 0 0 0;}
+        .table-bordered thead:first-child tr:first-child th:last-child,.table-bordered tbody:first-child tr:first-child td:last-child{-webkit-border-radius:0 4px 0 0;-moz-border-radius:0 4px 0 0;border-radius:0 4px 0 0;}
+        .table-bordered thead:last-child tr:last-child th:first-child,.table-bordered tbody:last-child tr:last-child td:first-child{-webkit-border-radius:0 0 0 4px;-moz-border-radius:0 0 0 4px;border-radius:0 0 0 4px;}
+        .table-bordered thead:last-child tr:last-child th:last-child,.table-bordered tbody:last-child tr:last-child td:last-child{-webkit-border-radius:0 0 4px 0;-moz-border-radius:0 0 4px 0;border-radius:0 0 4px 0;}
+        .table-striped tbody tr:nth-child(odd) td,.table-striped tbody tr:nth-child(odd) th{background-color:#f9f9f9;}
+        .table tbody tr:hover td,.table tbody tr:hover th{background-color:#f5f5f5;}
+        .row-fluid:before,
+        .row-fluid:after {display: table;content: "";}
+        .row-fluid:after {clear: both;}
+        .row-fluid > [class*="span"] {float: left;margin-left: 2.564102564%;}
+        .row-fluid > [class*="span"]:first-child {margin-left: 0;}
+        .navbar-form input,.navbar-form select,.navbar-form .radio,.navbar-form .checkbox{margin-top:5px;}
+        .navbar-form input,.navbar-form select{display:inline-block;margin-bottom:0;}
+        .navbar-form input[type="image"],.navbar-form input[type="checkbox"],.navbar-form input[type="radio"]{margin-top:3px;}
+        .navbar .nav>li{display:block;float:left;}
+        .navbar .nav>li>a{float:none;padding:10px 10px 11px;line-height:19px;color:#999999;text-decoration:none;text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);}
+        .navbar .nav>li>a:hover{background-color:transparent;color:#ffffff;text-decoration:none;}
+        .navbar .nav .active>a,.navbar .nav .active>a:hover{color:#ffffff;text-decoration:none;background-color:#222222;}
+        .navbar .nav .dropdown-toggle .navbar .nav .open.dropdown .caret{border-top-color:#ffffff;border-bottom-color:#ffffff;}
+        #content{padding: 0 25px;}
+        p{font-size:1.1em;margin-top: 1.5em;}
+        form{margin-top: 1.5em;}
+        table.gridtable {font-family: verdana,arial,sans-serif;font-size:11px;color:#333333;border-width: 1px;border-color: #666666;border-collapse: collapse;}
+        table.gridtable th {border-width: 1px;padding: 8px;border-style: solid;border-color: #666666;background-color: #dedede;}
+        table.gridtable td {border-width: 1px;padding: 8px;border-style: solid;border-color: #666666;background-color: #ffffff;}
+    </style>
+</head>
+<body>
+    <div class="span7" id="content">
+    <br/><br/>
+        <div class="row-fluid">
+            <!-- block -->
+            <table class="table table-bordered table-condensed gridtable" >
+                <thead>
+                    <tr>
+                        <th style="text-align:center;vertical-align: middle;background:yellow;" colspan="3">
+                            报表名称
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center;vertical-align: middle">
+                            表头1
+                        </th>
+                        <th style="text-align:center;vertical-align: middle">
+                            表头2
+                        </th>
+                        <th style="text-align:center;vertical-align: middle">
+                            表头3
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align:center;vertical-align: middle">
+                            第一行第一列
+                        </td>
+                        <td style="text-align:center;vertical-align: middle">
+                            第一行第二列
+                        </td>
+                        <td style="text-align:center;vertical-align: middle">
+                            第一行第三列
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center;vertical-align: middle">
+                            第二行第一列
+                        </td>
+                        <td style="text-align:center;vertical-align: middle">
+                            第二行第二列
+                        </td>
+                        <td style="text-align:center;vertical-align: middle">
+                            第二行第三列
+                        </td>
+                    </tr>
+                    <tr >
+                        <td style="text-align:center;vertical-align: middle">
+                            第三行第一列
+                        </td>
+                        <td style="text-align:center;vertical-align: middle">
+                            第三行第二列
+                        </td>
+                        <td style="text-align:center;vertical-align: middle">
+                            第三行第三列
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <br/><br/>
+        <div class="row-fluid">
+            <!-- block -->
+            <table class="table table-bordered table-condensed gridtable" >
+                <thead>
+                    <tr>
+                        <th style="text-align:center;vertical-align: middle;background:yellow;" colspan="3">
+                            报表名称
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center;vertical-align: middle">
+                            表头1
+                        </th>
+                        <th style="text-align:center;vertical-align: middle">
+                            表头2
+                        </th>
+                        <th style="text-align:center;vertical-align: middle">
+                            表头3
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align:center;vertical-align: middle">
+                            第一行第一列
+                        </td>
+                        <td style="text-align:center;vertical-align: middle">
+                            第一行第二列
+                        </td>
+                        <td style="text-align:center;vertical-align: middle">
+                            第一行第三列
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center;vertical-align: middle">
+                            第二行第一列
+                        </td>
+                        <td style="text-align:center;vertical-align: middle">
+                            第二行第二列
+                        </td>
+                        <td style="text-align:center;vertical-align: middle">
+                            第二行第三列
+                        </td>
+                    </tr>
+                    <tr >
+                        <td style="text-align:center;vertical-align: middle">
+                            第三行第一列
+                        </td>
+                        <td style="text-align:center;vertical-align: middle">
+                            第三行第二列
+                        </td>
+                        <td style="text-align:center;vertical-align: middle">
+                            第三行第三列
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <script>
+        var abc = document.getElementsByClassName('text_test')[0];
+        alert(abc.innerText);
+        abc.innerHTML = '123123125323412';
+    </script>
+</body>
+</html>
