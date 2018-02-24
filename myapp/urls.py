@@ -15,7 +15,11 @@ urlpatterns = [
     url(r'write_table_test/$', views.write_table_test),
     url(r'charts/$', views.charts),
     url(r'example/$', views.example),
-    url(r'regist/$', views.register),
-    url(r'check_form/$', users.auth_user),
-    url(r'ajax_post', views.ajax_post)
+    url(r'register/$', views.register),
+    url(r'register_user', users.register_user),
+    url(r'login', users.auth_user),
+    url(r'ajax_post', views.ajax_post),
+    url(r'create_group', users.create_group),
+    url(r'add_user', users.add_user),
+    url(r'clear_group', users.clear_group),
 ]
