@@ -29,6 +29,7 @@
         </form>
         <input type="submit" value="注册"  id="register_user"/>
         <input type="submit" value="登录" id="login"/>
+        <input type="submit" value="登出" id="logout"/>
         <input type="submit" value="创建用户组" id="create_group"/>
         <input type="submit" value="用户组添加用户" id="add_user"/>
         <input type="submit" value="用户组清空用户" id="clear_group"/>
@@ -84,6 +85,14 @@
                     var datas = get_argvs();
                     var data = {'user_name':datas['user_name'],'password':datas['password']};
                     ajax_post('/myapp/login',data);
+                    location.href = '/myapp/register';
+                    //window.open('/myapp/register');
+                });
+
+                //登出
+                $("#logout").click(function () {
+                    ajax_post('/myapp/logout',{});
+                    location.href = '/myapp/register';
                 });
 
                 //创建用户组

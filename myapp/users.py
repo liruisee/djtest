@@ -1,7 +1,9 @@
 from django.contrib.auth.models import User
-from django.http import HttpResponse,JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import Group
+from django.contrib.auth import login,logout
+from django.contrib.auth.decorators import login_required
 
 
 def get_user(user_name):
@@ -22,12 +24,14 @@ def get_group(group_name):
 
 def register_user(request):
     print(request.method)
+    print(request.user.is_authenticated())
     if request.method == 'POST':
         username = request.POST.get('user_name')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        print(username,email,password)
+        print(username, email, password)
         user = get_user(user_name=username)
+        print(dir(user))
         if user is None:
             User.objects.create_user(username=username, email=email, password=password)
         return HttpResponse('regist success')
@@ -35,7 +39,7 @@ def register_user(request):
         return HttpResponse('regist failed')
 
 
-def auth_user(request):
+def user_login(request):
     print(request.method)
     if request.method == 'POST' or request.method == 'GET':
         print('start')
@@ -43,21 +47,30 @@ def auth_user(request):
         password = request.POST.get('password')
         print(username, password)
         user = authenticate(username=username, password=password)
-        print('end')
-        print(type(user))
-        if user is not None:
+        if user is not None and user.is_active:
+            login(request, user)
             return HttpResponse('login success')
+            # return HttpResponseRedirect("/myapp/login/")
         else:
             return HttpResponse('login failed')
 
 
+@login_required(login_url='/myapp/regist/')
+def user_logout(request):
+    print(request.method)
+    print(request.user.is_authenticated)
+    logout(request)
+    return HttpResponse('logout')
+
+
 def create_group(request):
     print(request.method)
+    print(request.user.is_authenticated)
+    # logout(request)
     if request.method == 'POST':
         group_name = request.POST.get('group_name')
         if group_name:
             Group.objects.update_or_create(name=group_name)
-            print(Group.objects.exists())
         return JsonResponse('%s用户组创建成功' % group_name, safe=False)
     else:
         return HttpResponse('method error')
@@ -69,6 +82,7 @@ def add_user(request):
         group_name = request.POST.get('group_name')
         user = get_user(user_name)
         group = get_group(group_name=group_name)
+        print(user.user_permissions.all())
         if user and group:
             user.groups.add(group)
             return HttpResponse('add success')
@@ -89,10 +103,4 @@ def clear_group(request):
             return HttpResponse('this group is not exists')
     else:
         return HttpResponse('the method error!!')
-
-
-
-
-
-
 
