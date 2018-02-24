@@ -13,20 +13,26 @@
     </head>
 
     <body>
-        <form role="form" action="/myapp/check_form/" method="post">{% csrf_token %}
+        <form role="form" method="post">{% csrf_token %}
             <div class="form-group">
-                用户名：<input type="text" name="user_name">
+                用户名：<input type="text" name="user_name" id="user_name" value="">
             </div>
             <div class="form-group">
-                邮&nbsp;&nbsp;&nbsp;&nbsp;箱：<input type="email" name="email">
+                邮&nbsp;&nbsp;&nbsp;箱：<input type="email" name="email" id="email" value="">
             </div>
             <div class="form-group">
-                密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="password">
+                密&nbsp;&nbsp;&nbsp;码：<input type="password" name="password" id="password" value="">
             </div>
-            <div class="form-group offset1" >
-                <input type="submit" value="提交" />
+            <div class="form-group">
+                组名称：<input type="text" name="group_name" id="group_name" value="">
             </div>
         </form>
+        <input type="submit" value="注册"  id="register_user"/>
+        <input type="submit" value="登录" id="login"/>
+        <input type="submit" value="创建用户组" id="create_group"/>
+        <input type="submit" value="用户组添加用户" id="add_user"/>
+        <input type="submit" value="用户组清空用户" id="clear_group"/>
+
         <hr>
         <div class="ajax_post">
 
@@ -37,6 +43,73 @@
             $.ajaxSetup({
                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' }
             });
+        </script>
+        <script>
+            function ajax_post(url,data) {
+                $.ajax({
+                    type:'post',
+                    data:data,
+                    url:url,
+                    async:false,
+                    success:function (ret) {
+                        console.log(ret);
+                        alert('success')
+                    },
+                    error:function () {
+                        alert('failed')
+                    }
+                })
+            }
+
+            function get_argvs() {
+                var datas = {};
+                datas['user_name'] = $("#user_name").val();
+                datas['email'] = $("#email").val();
+                datas['password'] = $("#password").val();
+                datas['group_name'] = $("#group_name").val();
+                return datas
+            }
+
+            $(document).ready(function () {
+
+                //注册
+                $("#register_user").click(function () {
+                    var datas = get_argvs();
+                    data = {'user_name':datas['user_name'],'email':datas['email'],'password':datas['password']};
+                    ajax_post('/myapp/register_user',data);
+                });
+
+                //登录
+                $("#login").click(function () {
+                    var datas = get_argvs();
+                    var data = {'user_name':datas['user_name'],'password':datas['password']};
+                    ajax_post('/myapp/login',data);
+                });
+
+                //创建用户组
+                $("#create_group").click(function () {
+                    ajax_post('/myapp/create_group',{'group_name':'test1'})
+                });
+
+                //添加用户
+                $("#add_user").click(function () {
+                    datas = get_argvs();
+                    var data = {'user_name':datas['user_name'], 'email':datas['email'],'password':datas['password'],'group_name':datas['group_name']};
+                    ajax_post('/myapp/add_user',data);
+                });
+
+                //清空用户组
+                $("#clear_group").click(function () {
+                    var datas = get_argvs();
+                    console.log(datas);
+                    var group_name = datas['group_name'];
+                    var data = {'group_name':group_name};
+                    ajax_post('/myapp/clear_group',data);
+                })
+            })
+
+
+
         </script>
         <script src="/static/js/test.js"></script>
     </body>
