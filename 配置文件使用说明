@@ -1,5 +1,0 @@
-1、server_conf下的uwsgi文件的启动方式为 uwsgi --ini uwsgi.ini
-2、nginx服务配置参考server_conf下的nginx.conf配置，nginx启动方式为 /usr/local/nginx/sbin/nginx
-3、静态文件（包含js、css等文件）都放在static文件夹下
-4、模板文件在template下，模板中用到的js均在static下，其中自己手写的或者改过的js文件都放在了static的js文件夹下
-5、后台逻辑在myapp的view.py下，用户组及权限的一些操作在myapp的users.py下，权限部门目前还没有写

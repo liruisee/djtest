@@ -1,8 +1,0 @@
-ajax_to_table.js文件是js向后台请求数据，然后写入到模板的table标签中
-make_charts.js用Morris.js开源js框架写图表，包含折线图，柱状图，饼图
-make_e_charts.js用echart.js开源js框架写图表，包含折线图，柱状图，饼图，地图（目前没有写）等图，详情可访问官网：http://echarts.baidu.com/
-table2.js调用了ajax_to_table.js方法，将后台数据写到模板的table标签中
-test.js用于测试csrf中间件的影响
-
-
-js文件的具体使用方法，在文件的注释中都有说明

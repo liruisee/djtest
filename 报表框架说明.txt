@@ -1,0 +1,25 @@
+1、server_conf下的uwsgi文件的启动方式为 uwsgi --ini uwsgi.ini
+
+2、nginx服务配置参考server_conf下的nginx.conf配置，nginx启动方式为 /usr/local/nginx/sbin/nginx
+
+3、静态文件（包含js、css等文件）都放在static文件夹下
+（1）ajax_to_table.js文件是js向后台请求数据，然后写入到模板的table标签中；
+（2）make_charts.js用Morris.js开源js框架写图表，包含折线图，柱状图，饼图；
+（3）make_e_charts.js用echart.js开源js框架写图表，包含折线图，柱状图，饼图，地图（目前没有写）等图，详情可访问官网：http://echarts.baidu.com/；
+（4）table2.js调用了ajax_to_table.js方法，将后台数据写到模板的table标签中；
+（5）test.js用于测试csrf中间件的影响。
+
+4、模板文件在template下（bootstrap框架），模板中用到的js、css等文件均在static下，其中自己手写的或者改过的js文件都放在了static的js文件夹下；
+（1）tables.html  框架集成好的表格模板，用于内存占用不是太大的数据展示（1000条以内），用的时候通过python的template语法，将数据直接写到html文件中，框架可自动处理成翻页展示；
+（2）tables2.html  自己写的表格模板，用于数据量较大，不能一次性加载到前台的数据的展示（1000条以上），通常是在后台分批次查询，然后通过ajax方法，异步加载到前台；
+（3）stats.html  几种图表的的模板；
+（4）example.html  报表和图表功能集成到了一个页面上，用于说明此框架已经可以支持的所有功能；
+（5）buttons.html  按钮形式的模板（暂时未投入使用）；
+（6）calendar.html  日历形式的模板（暂时未投入使用）；
+（7）form.html   表单形式的模板（暂时未投入使用）；
+（8）regist.html  测试注册、登录、登出、创建用户组、用户加入用户组、清空用户组的模板（权限内容还未加入）；
+（9）其他未提到的文件，暂时均未使用。
+
+5、后台逻辑在myapp的view.py下，用户组及权限的一些操作在myapp的users.py下，权限部门目前还没有写
+
+6、以上没有提到的（比如某些函数的用法），在各自的文件中一般也都有说明，如果还有疑问，可随时微信联系（lirui27023914）
